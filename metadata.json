@@ -1,0 +1,6 @@
+{
+  "name": "AI Predictive Bus Arrival System",
+  "description": "Know when your bus will arrive — before it arrives. Advanced AI arrival predictions, traffic intelligence, crowd estimation, and journey planning.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
