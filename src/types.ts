@@ -193,3 +193,75 @@ export interface FavoriteItem {
   destination?: string;
   nextArrivalMin?: number;
 }
+
+export interface UserValidationFeedback {
+  id: string;
+  userName: string;
+  role: 'Student Commuter' | 'Corporate Office Commuter' | 'Transit Fleet Dispatcher' | 'Academic Reviewer';
+  affiliation: string;
+  experienceLevel: string;
+  susScore: number; // 0 - 100 System Usability Scale
+  taskSuccessRate: number; // %
+  avgTaskTimeSec: number;
+  testedFeature: string;
+  keyFeedback: string;
+  criticalPainPoint: string;
+  implementedImprovement: string;
+  date: string;
+  rating: number; // 1 - 5
+}
+
+export interface EmpathyQuadrant {
+  says: string[];
+  thinks: string[];
+  does: string[];
+  feels: string[];
+}
+
+export interface EmpathyMapProfile {
+  persona: string;
+  tagline: string;
+  archetype: 'Daily Commuter' | 'Fleet Controller';
+  demographics: string;
+  goals: string[];
+  frustrations: string[];
+  quadrant: EmpathyQuadrant;
+}
+
+export interface DiscardedDesignIdea {
+  id: string;
+  title: string;
+  originalHypothesis: string;
+  whyDiscarded: string;
+  testFindingOrMetric: string;
+  superiorAlternativeAdopted: string;
+  impactScore: string;
+}
+
+export interface AiPromptAudit {
+  id: string;
+  module: string;
+  purpose: string;
+  systemPrompt: string;
+  guardrails: string[];
+  outputFormat: string;
+  hallucinationMitigation: string;
+  latencyBudgetMs: number;
+}
+
+export interface GtfsRtEntityRecord {
+  id: string;
+  entityType: 'TripUpdate' | 'VehiclePosition' | 'Alert';
+  tripId: string;
+  routeId: string;
+  vehicleId: string;
+  lat: number;
+  lng: number;
+  bearing: number;
+  speedMps: number;
+  delaySec: number;
+  occupancyStatus: string;
+  timestamp: number;
+  protobufSize: number;
+}
+

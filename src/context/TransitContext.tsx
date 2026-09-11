@@ -33,7 +33,11 @@ export type ActiveTab =
   | 'simulator'
   | 'alerts'
   | 'favorites'
-  | 'admin';
+  | 'admin'
+  | 'validation'
+  | 'audit'
+  | 'pipeline'
+  | 'pathway';
 
 interface TransitContextType {
   buses: BusTelemetry[];

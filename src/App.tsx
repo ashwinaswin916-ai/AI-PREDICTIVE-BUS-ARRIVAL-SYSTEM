@@ -8,6 +8,10 @@ import { SmartRoutes } from './components/SmartRoutes';
 import { WhatIfSimulator } from './components/WhatIfSimulator';
 import { AiAnalytics } from './components/AiAnalytics';
 import { AdminTransitPanel } from './components/AdminTransitPanel';
+import { UserValidationPanel } from './components/UserValidationPanel';
+import { AiAuditDesignPanel } from './components/AiAuditDesignPanel';
+import { GtfsPipelinePanel } from './components/GtfsPipelinePanel';
+import { CoursePathwayHub } from './components/CoursePathwayHub';
 import { MobileNav } from './components/MobileNav';
 import { PresentationModal } from './components/PresentationModal';
 
@@ -32,7 +36,15 @@ const AppContent: React.FC = () => {
         {activeTab === 'predictions' && <MainDashboard />}
         {activeTab === 'simulator' && <WhatIfSimulator />}
         {activeTab === 'analytics' && <AiAnalytics />}
+        {activeTab === 'history' && <AiAnalytics />}
         {activeTab === 'admin' && <AdminTransitPanel />}
+        {activeTab === 'validation' && <UserValidationPanel />}
+        {activeTab === 'audit' && <AiAuditDesignPanel />}
+        {activeTab === 'pipeline' && <GtfsPipelinePanel />}
+        {activeTab === 'pathway' && <CoursePathwayHub />}
+        {activeTab === 'landing' && <MainDashboard />}
+        {activeTab === 'alerts' && <AdminTransitPanel />}
+        {activeTab === 'favorites' && <BusSearch />}
       </main>
 
       {/* Mobile Bottom Navigation */}

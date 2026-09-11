@@ -21,7 +21,11 @@ import {
   Menu,
   X,
   Layers,
-  ChevronDown
+  ChevronDown,
+  UserCheck,
+  Brain,
+  Cpu,
+  Award
 } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
@@ -46,13 +50,12 @@ export const Navbar: React.FC = () => {
 
   const navItems: { id: ActiveTab; label: string; icon: React.ComponentType<{ className?: string }> }[] = [
     { id: 'dashboard', label: 'Dashboard', icon: Layers },
-    { id: 'search', label: 'Find Bus', icon: Search },
-    { id: 'map', label: 'Live Map', icon: MapPin },
-    { id: 'predictions', label: 'AI Engine', icon: Sparkles },
+    { id: 'pathway', label: 'Course Review Hub', icon: Award },
+    { id: 'validation', label: 'User Studies', icon: UserCheck },
+    { id: 'audit', label: 'AI Audit & Design', icon: Brain },
+    { id: 'pipeline', label: 'GTFS-RT Feed', icon: Cpu },
     { id: 'simulator', label: 'What-If AI', icon: SlidersHorizontal },
-    { id: 'routes', label: 'Smart Routes', icon: Route },
-    { id: 'analytics', label: 'Analytics', icon: BarChart3 },
-    { id: 'history', label: 'History', icon: History },
+    { id: 'map', label: 'Live Map', icon: MapPin },
   ];
 
   const handleNavClick = (tabId: ActiveTab) => {
@@ -139,9 +142,23 @@ export const Navbar: React.FC = () => {
               </button>
 
               {dropdownOpen && (
-                <div className={`absolute right-0 mt-2 w-48 rounded-xl shadow-xl border py-1 z-50 animate-in fade-in-50 zoom-in-95 ${
+                <div className={`absolute right-0 mt-2 w-52 rounded-xl shadow-xl border py-1 z-50 animate-in fade-in-50 zoom-in-95 ${
                   theme === 'dark' ? 'bg-slate-900 border-slate-800 text-slate-200' : 'bg-white border-slate-200 text-slate-800'
                 }`}>
+                  <button
+                    onClick={() => handleNavClick('routes')}
+                    className="w-full flex items-center gap-2.5 px-3.5 py-2 text-xs hover:bg-cyan-500/10 hover:text-cyan-400 text-left font-medium"
+                  >
+                    <Route className="w-4 h-4 text-cyan-400" />
+                    <span>Smart Routes & Alternatives</span>
+                  </button>
+                  <button
+                    onClick={() => handleNavClick('analytics')}
+                    className="w-full flex items-center gap-2.5 px-3.5 py-2 text-xs hover:bg-cyan-500/10 hover:text-cyan-400 text-left font-medium"
+                  >
+                    <BarChart3 className="w-4 h-4 text-indigo-400" />
+                    <span>Accuracy & ML Benchmarks</span>
+                  </button>
                   <button
                     onClick={() => handleNavClick('landing')}
                     className="w-full flex items-center gap-2.5 px-3.5 py-2 text-xs hover:bg-cyan-500/10 hover:text-cyan-400 text-left font-medium"

@@ -17,7 +17,12 @@ import {
   Route,
   Zap,
   CheckCircle2,
-  RefreshCw
+  RefreshCw,
+  Tv,
+  UserCheck,
+  Brain,
+  Cpu,
+  Award
 } from 'lucide-react';
 import { AiReasoningCard } from './AiReasoningCard';
 import { BusDetailModal } from './BusDetailModal';
@@ -31,7 +36,8 @@ export const MainDashboard: React.FC = () => {
     setActiveTab,
     theme,
     triggerSimulatedDelay,
-    resetAllSimulations
+    resetAllSimulations,
+    setIsPresentationMode
   } = useTransit();
 
   const [activeModalBus, setActiveModalBus] = useState<BusTelemetry | null>(null);
@@ -68,7 +74,23 @@ export const MainDashboard: React.FC = () => {
           </p>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
+          <button
+            onClick={() => setActiveTab('pathway')}
+            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-black text-white bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-700 hover:from-indigo-500 hover:to-purple-500 shadow-md shadow-indigo-600/30 transition-all active:scale-95 border border-indigo-400/40"
+            title="Open unified Academic Review & Course Pathway Deliverables Hub"
+          >
+            <Award className="w-3.5 h-3.5 text-amber-300" />
+            <span>Course Review Hub</span>
+          </button>
+          <button
+            onClick={() => setIsPresentationMode(true)}
+            className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-cyan-600 via-sky-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 shadow-md shadow-cyan-500/20 transition-all active:scale-95"
+            title="Watch full AI prediction pipeline demo walkthrough"
+          >
+            <Tv className="w-3.5 h-3.5 text-cyan-200" />
+            <span>Interactive Demo Tour</span>
+          </button>
           <button
             onClick={() => setActiveTab('simulator')}
             className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold bg-slate-800/80 hover:bg-slate-700/80 text-cyan-300 border border-slate-700/80 transition-all shadow-sm"
@@ -84,6 +106,57 @@ export const MainDashboard: React.FC = () => {
             <RefreshCw className="w-4 h-4" />
           </button>
         </div>
+      </div>
+
+      {/* ACADEMIC AUDIT & INGESTION PIPELINE RIBBON */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-3 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-sm">
+        <button
+          onClick={() => setActiveTab('validation')}
+          className="flex items-center gap-3 p-3 rounded-xl bg-slate-950/60 hover:bg-slate-800/60 border border-slate-800 text-left transition-all group"
+        >
+          <div className="p-2 rounded-lg bg-emerald-500/15 text-emerald-400 group-hover:scale-105 transition-transform">
+            <UserCheck className="w-4 h-4" />
+          </div>
+          <div>
+            <div className="flex items-center gap-1.5">
+              <span className="text-xs font-bold text-white group-hover:text-emerald-300">User Validation Studies</span>
+              <span className="text-[10px] px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-400 font-bold">SUS 88.3</span>
+            </div>
+            <p className="text-[11px] text-slate-400">3 target commuters & dispatchers</p>
+          </div>
+        </button>
+
+        <button
+          onClick={() => setActiveTab('audit')}
+          className="flex items-center gap-3 p-3 rounded-xl bg-slate-950/60 hover:bg-slate-800/60 border border-slate-800 text-left transition-all group"
+        >
+          <div className="p-2 rounded-lg bg-indigo-500/15 text-indigo-400 group-hover:scale-105 transition-transform">
+            <Brain className="w-4 h-4" />
+          </div>
+          <div>
+            <div className="flex items-center gap-1.5">
+              <span className="text-xs font-bold text-white group-hover:text-indigo-300">AI Audit & Design Thinking</span>
+              <span className="text-[10px] px-1.5 py-0.2 rounded bg-indigo-500/20 text-indigo-400 font-bold">4 Discarded Ideas</span>
+            </div>
+            <p className="text-[11px] text-slate-400">Empathy maps & system prompts</p>
+          </div>
+        </button>
+
+        <button
+          onClick={() => setActiveTab('pipeline')}
+          className="flex items-center gap-3 p-3 rounded-xl bg-slate-950/60 hover:bg-slate-800/60 border border-slate-800 text-left transition-all group"
+        >
+          <div className="p-2 rounded-lg bg-cyan-500/15 text-cyan-400 group-hover:scale-105 transition-transform">
+            <Cpu className="w-4 h-4" />
+          </div>
+          <div>
+            <div className="flex items-center gap-1.5">
+              <span className="text-xs font-bold text-white group-hover:text-cyan-300">GTFS-RT & AIS-140 Pipeline</span>
+              <span className="text-[10px] px-1.5 py-0.2 rounded bg-cyan-500/20 text-cyan-400 font-bold">Live Stream</span>
+            </div>
+            <p className="text-[11px] text-slate-400">Hardware telemetry & Protobuf specs</p>
+          </div>
+        </button>
       </div>
 
       {/* SECTION 27 UNIQUE FEATURE: EARLY WARNING PREDICTION CARD */}

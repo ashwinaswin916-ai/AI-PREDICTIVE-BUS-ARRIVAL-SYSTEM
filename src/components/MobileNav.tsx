@@ -1,17 +1,17 @@
 import React from 'react';
 import { useTransit, ActiveTab } from '../context/TransitContext';
-import { LayoutDashboard, Search, Map, Sparkles, SlidersHorizontal, BarChart2 } from 'lucide-react';
+import { LayoutDashboard, Map, SlidersHorizontal, Award, UserCheck, Cpu } from 'lucide-react';
 
 export const MobileNav: React.FC = () => {
   const { activeTab, setActiveTab, theme } = useTransit();
 
   const items: { id: ActiveTab; label: string; icon: React.ComponentType<{ className?: string }> }[] = [
     { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
-    { id: 'search', label: 'Find Bus', icon: Search },
-    { id: 'map', label: 'Map', icon: Map },
-    { id: 'predictions', label: 'AI Predict', icon: Sparkles },
-    { id: 'simulator', label: 'Simulator', icon: SlidersHorizontal },
-    { id: 'analytics', label: 'Analytics', icon: BarChart2 },
+    { id: 'pathway', label: 'Review Hub', icon: Award },
+    { id: 'validation', label: 'Studies', icon: UserCheck },
+    { id: 'pipeline', label: 'GTFS-RT', icon: Cpu },
+    { id: 'simulator', label: 'What-If', icon: SlidersHorizontal },
+    { id: 'map', label: 'Live Map', icon: Map },
   ];
 
   return (
